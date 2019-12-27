@@ -11,6 +11,9 @@ import javax.swing.JFrame;
  * @author Zili Wang
  * @since 04-08-2017
  * 
+ * <h2>Continued Project</h2>
+ * There are potential bugs in this app. This is the continued develepment for this project.
+ * 
  */
 
 public class MultibaseCalculator {
