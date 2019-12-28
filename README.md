@@ -8,7 +8,7 @@ responds immediately: the numbers in the calculator's display area will be repre
 the new base, and the digit buttons will reflect the new base.
 
 <h2>Original Instructions</h2>
-See the [instructions](http://bc-cisc3120-s17.github.io/project1).
+See the [instructions](https://bc-cisc3120-s17.github.io/project1).
 
 <h2>Continued Project</h2>
 There are potential bugs in this app. This is the continued develepment for this project.
