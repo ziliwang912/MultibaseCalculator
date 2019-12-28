@@ -9,3 +9,5 @@ the new base, and the digit buttons will reflect the new base.
 
 <h2>Continued Project</h2>
 There are potential bugs in this app. This is the continued develepment for this project.
+
+See the [instructions](http://bc-cisc3120-s17.github.io/project1).
