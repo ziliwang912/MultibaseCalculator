@@ -11,6 +11,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.io.IOException;
 
+
 /**
  * This class displays GUI and handles controlling of the calculator.
  */
@@ -49,6 +50,7 @@ public class CalculatorPanel extends JPanel {
 		display.setFont(displayFont);
 		display.setEditable(false);
 
+		// Adds and sets slider
 		add(baseSlider);
 		baseSlider.setPreferredSize(new Dimension(400, 80));
 		baseSlider.setPaintTicks(true);
@@ -57,8 +59,11 @@ public class CalculatorPanel extends JPanel {
 		baseSlider.setMajorTickSpacing(2);
 		baseSlider.setMinorTickSpacing(1);
 		baseSlider.setFont(sliderFont);
+
+		// Adds slidre action listener
 		baseSlider.addChangeListener(new sliderListener());
 
+		// Adds buttons and button action listener
 		for (int i = 0; i < totalButtonNumber; i++) {
 			buttons[i] = new JButton();
 			add(buttons[i]);
@@ -80,7 +85,6 @@ public class CalculatorPanel extends JPanel {
 	 * Listens to slider change events and responses accordingly.
 	 */
 	private class sliderListener implements ChangeListener {
-
 		/**
 		 * Overrides stateChanged method to handle slider change events.
 		 * 
@@ -88,7 +92,6 @@ public class CalculatorPanel extends JPanel {
 		 */
 		@Override
 		public void stateChanged(final ChangeEvent ce) {
-
 			// Casts ChangeEvent source to JSlider source
 			final JSlider source = (JSlider) ce.getSource();
 
@@ -105,11 +108,17 @@ public class CalculatorPanel extends JPanel {
 					buttons[j].setEnabled(false);
 				}
 
-				calc.clear();
+				calc.clear(); //??????????????????????????
+			
 				final String expression = display.getText();
 
 				// Puts new expression on display by updating the base of operands
+				System.out.println("e = " + expression + ", base =  " + base + ", newBase =  " + newBase);
+
 				display.setText(calc.updateBase(expression, base, newBase));
+
+				// Sets "base" to current base.
+				base = newBase;
 			}
 		}
 	}

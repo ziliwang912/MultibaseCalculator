@@ -15,6 +15,11 @@ import javax.swing.JFrame;
  * There are potential bugs in this app. This is the continued develepment for this project.
  * @author Zili Wang
  * @since 12-27-2019
+ * 
+ * 
+ * <h2> Bugs fixed<h2>
+ * 1. When changing slider, expression doesn't response accordingly
+ * 
  */
 
 public class MultibaseCalculator {
