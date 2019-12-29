@@ -14,7 +14,7 @@ import javax.swing.JFrame;
  * <h2>Continued Project</h2>
  * There are potential bugs in this app. This is the continued develepment for this project.
  * Bugs:
- * 	1. Not display numbers correctly when moving knobs back and forth
+ * 	1. Not display expression correctly when moving knobs (changing base) back and forth
  * 	2. 
  * 
  * @author Zili Wang
