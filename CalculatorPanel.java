@@ -17,8 +17,8 @@ import java.io.IOException;
 public class CalculatorPanel extends JPanel {
 	
 	/**
-	 * The serializable class CalculatorPanel declares a static final serialVersionUID 
-	 * field of type long
+	 * The serializable class CalculatorPanel does not declare a static final 
+	 * serialVersionUID field of type long
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -27,7 +27,7 @@ public class CalculatorPanel extends JPanel {
 	private final JTextArea display = new JTextArea(1, 9);
 
 	private final JSlider baseSlider = new JSlider(2, 16, 16);
-	private int base = calc.getBase();
+	private int base = baseSlider.getValue();
 	private int newBase;
 
 	private static int totalButtonNumber = 22; // There are total 22 buttons in this calculator
@@ -58,8 +58,6 @@ public class CalculatorPanel extends JPanel {
 		baseSlider.setMinorTickSpacing(1);
 		baseSlider.setFont(sliderFont);
 		baseSlider.addChangeListener(new sliderListener());
-
-		base = baseSlider.getValue();
 
 		for (int i = 0; i < totalButtonNumber; i++) {
 			buttons[i] = new JButton();
@@ -107,10 +105,11 @@ public class CalculatorPanel extends JPanel {
 					buttons[j].setEnabled(false);
 				}
 
+				calc.clear();
 				final String expression = display.getText();
 
 				// Puts new expression on display by updating the base of operands
-				display.setText(calc.updateBase(expression, calc.getBase(), newBase));
+				display.setText(calc.updateBase(expression, base, newBase));
 			}
 		}
 	}
@@ -137,7 +136,7 @@ public class CalculatorPanel extends JPanel {
 			if (ae.getSource() == buttons[20]) {
 				final String expression = display.getText();
 				base = baseSlider.getValue();
-				calc.clear(calc.getBase());
+				calc.clear();
 
 				// Handles exceptions by printing messages on display
 				try {
@@ -152,7 +151,7 @@ public class CalculatorPanel extends JPanel {
 			// If "Clear" is clicked, clears all contend on display
 			if(ae.getSource() == buttons[21]){
 				display.setText("");
-				calc.clear(calc.getBase());		
+				calc.clear();			
 			}			
 		} 
 	} 

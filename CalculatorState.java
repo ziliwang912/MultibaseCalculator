@@ -7,7 +7,6 @@ import java.io.IOException;
  * This class stores and updates state of the calculator.
  */
 public class CalculatorState {
-	private int currBase; // Value of current base
 	private int value; 	// Value of current calculation
 	private ArrayList<String> operands = new ArrayList<String>();
 	private ArrayList<String> operator = new ArrayList<String>();
@@ -21,21 +20,13 @@ public class CalculatorState {
 	}
 	
 	/**
-	 * Get the value of current base
-	 */
-	public int getBase() {
-		return this.currBase;
-	}
-
-	/**
 	 * Sets state of calculator to default values.
 	 */
-	public void clear(int base) { 
+	public void clear() { 
 		value = 0; 
 		operands.clear();
 		operator.clear();
 		operand1 = operand2 = 0;
-		this.currBase = base;
 	}
 	
 	/**
@@ -71,8 +62,6 @@ public class CalculatorState {
 	public String updateBase(String expression, int base, int newBase) {
 		preHandle(expression);
 		
-		currBase = base;
-
 		/* 
 		  If the expression is empty, then no update needed;
 		  If there is no operator, then there is only one operand needed to update;
@@ -82,16 +71,16 @@ public class CalculatorState {
 		if (expression.isEmpty()){
 			return "";
 		} else if (operator.isEmpty()) {
-			operand1 = Integer.parseInt(operands.get(0), currBase); 
+			operand1 = Integer.parseInt(operands.get(0), base); 
 			expression = Integer.toString(operand1, newBase);			
-		} else if (operands.size() == 1) {			
-			operand1 = Integer.parseInt(operands.get(0), currBase);
-			expression = Integer.toString(operand1, newBase) + operator.get(0);			
-		} else {	
-			operand1 = Integer.parseInt(operands.get(0), currBase);
-			operand2 = Integer.parseInt(operands.get(1), currBase);
+		} else if (operands.size() == 2) {	
+			operand1 = Integer.parseInt(operands.get(0), base);
+			operand2 = Integer.parseInt(operands.get(1), base);
 			expression = Integer.toString(operand1, newBase) + operator.get(0) 
 										  + Integer.toString(operand2,newBase);	
+		} else {			
+			operand1 = Integer.parseInt(operands.get(0), base);
+			expression = Integer.toString(operand1, newBase) + operator.get(0);			
 		} 
 		
 		return expression.toUpperCase(); // Makes sure that result is in upper case 
@@ -109,8 +98,7 @@ public class CalculatorState {
 	 */
 	public String getResult(String expression, int base) throws ArithmeticException, IOException {
 		preHandle(expression);
-
-		currBase = base;
+		
 		operand1 = Integer.parseInt(operands.get(0), base);
 		operand2 = Integer.parseInt(operands.get(1), base);
 
@@ -129,8 +117,8 @@ public class CalculatorState {
 				break;		
 		}
 		
-		String result = Integer.toString(value,currBase).toUpperCase();
-		writeHistory(expression + " = " + result + " <Base " + currBase + ">");
+		String result = Integer.toString(value,base).toUpperCase();
+		writeHistory(expression + " = " + result + " <Base " + base + ">");
 		
         return result;       
 	}
