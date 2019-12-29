@@ -1,4 +1,4 @@
-# MultibaseCalculator
+# Multibase Calculator
 
 ## CICS 3120 Project One
 This GUI multi-base calculator can do addition, subtraction, multiplication, and division 
