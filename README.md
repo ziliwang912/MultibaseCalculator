@@ -13,7 +13,7 @@ See the instructions at https://bc-cisc3120-s17.github.io/project1.
 <h2>Continued Project</h2>
 There are potential bugs in this app. This is the continued develepment for this project.
 
-<h2>Bugs already known: <h2>
+<h2>Bugs already known: </h2>
 1. When changing slider, expression doesn't response accordingly sometimes; (FIXED)
 2. Lack of inpout validation, expressions like "*67=" will throw exception;
 3. This calc cannot handle expressions like "-2*4=";
