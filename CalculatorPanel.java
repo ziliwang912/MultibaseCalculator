@@ -1,14 +1,16 @@
 import javax.swing.JPanel;
-import java.awt.FlowLayout;
 import javax.swing.JTextArea;
 import javax.swing.JSlider;
 import javax.swing.JButton;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+
 import java.io.IOException;
 
 
@@ -108,12 +110,9 @@ public class CalculatorPanel extends JPanel {
 					buttons[j].setEnabled(false);
 				}
 
-				calc.clear(); //??????????????????????????
+				calc.clear();
 			
 				final String expression = display.getText();
-
-				// Puts new expression on display by updating the base of operands
-				System.out.println("e = " + expression + ", base =  " + base + ", newBase =  " + newBase);
 
 				display.setText(calc.updateBase(expression, base, newBase));
 

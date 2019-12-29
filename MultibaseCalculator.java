@@ -16,10 +16,6 @@ import javax.swing.JFrame;
  * @author Zili Wang
  * @since 12-27-2019
  * 
- * 
- * <h2> Bugs fixed<h2>
- * 1. When changing slider, expression doesn't response accordingly
- * 
  */
 
 public class MultibaseCalculator {
